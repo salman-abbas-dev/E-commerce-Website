@@ -8,6 +8,14 @@ import About from './components/About/About.jsx'
 import Products from './components/Products/Products.jsx'
 import ProductDetails from './components/Products/ProductDetails.jsx'
 import Contact from './components/Contact/Contact.jsx'
+import Login from './components/Login.jsx'
+import Register from './components/Register.jsx'
+import Profile from './components/Profile.jsx'
+import AdminDashboard from './components/Admin/AdminDashboard.jsx'
+import PrivateRoute from './components/PrivateRoute.jsx'
+import AdminRoute from './components/AdminRoute.jsx'
+import { AuthProvider } from './context/AuthContext'
+import { CartProvider } from './context/CartContext'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +41,32 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />
+      },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "register",
+        element: <Register />
+      },
+      {
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />
+          }
+        ]
+      },
+      {
+        element: <AdminRoute />,
+        children: [
+          {
+            path: "admin",
+            element: <AdminDashboard />
+          }
+        ]
       }
     ]
   }
@@ -40,6 +74,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </AuthProvider>
   </StrictMode>,
 )
