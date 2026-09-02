@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" fill="none">
+  <defs>
+    <linearGradient id="zenithGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4F46E5" />
+      <stop offset="100%" stopColor="#9333EA" />
+    </linearGradient>
+  </defs>
+  <!-- Background Square (Expanded to fill the canvas) -->
+  <rect x="0" y="0" width="150" height="150" rx="35" fill="url(#zenithGradient)" />
+  <!-- Much Bolder White 'Z' -->
+  <path d="M 35 40 L 115 40 L 35 110 L 115 110" stroke="#FFFFFF" strokeWidth="36" strokeLinecap="round" strokeLinejoin="round" />
+</svg>
