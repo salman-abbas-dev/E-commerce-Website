@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
     }
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/cart', { headers: getAuthHeaders() });
+      const response = await fetch('https://zenith-e-commerce-store.vercel.app/api/cart', { headers: getAuthHeaders() });
       const data = await response.json();
       if (response.ok) setCart(data);
     } catch (err) {
@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
     const productId = product._id || product.id;
 
     try {
-      const response = await fetch('http://localhost:5000/api/cart/add', {
+      const response = await fetch('https://zenith-e-commerce-store.vercel.app/api/cart/add', {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ productId, quantity }),
@@ -65,7 +65,7 @@ export const CartProvider = ({ children }) => {
 
   const updateQuantity = async (productId, quantity) => {
     try {
-      const response = await fetch('http://localhost:5000/api/cart/update', {
+      const response = await fetch('https://zenith-e-commerce-store.vercel.app/api/cart/update', {
         method: 'PUT',
         headers: getAuthHeaders(),
         body: JSON.stringify({ productId, quantity }),
@@ -79,7 +79,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = async (productId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/remove/${productId}`, {
+      const response = await fetch(`https://zenith-e-commerce-store.vercel.app/api/cart/remove/${productId}`, {
         method: 'DELETE',
         headers: getAuthHeaders(),
       });

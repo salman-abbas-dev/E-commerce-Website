@@ -24,7 +24,7 @@ const Profile = () => {
     setError('');
 
     try {
-      const res = await fetch(`http://localhost:5000/api/users/profile`, {
+      const res = await fetch(`https://zenith-e-commerce-store.vercel.app/api/users/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

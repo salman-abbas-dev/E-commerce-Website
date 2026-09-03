@@ -12,7 +12,7 @@ export default function ProductDetails() {
         const fetchProduct = async () => {
             try {
                 // Fetching from your local MongoDB backend
-                const response = await fetch(`http://localhost:5000/api/products/${id}`);
+                const response = await fetch(`https://zenith-e-commerce-store.vercel.app/api/products/${id}`);
                 const data = await response.json();
                 setProduct(data);
             } catch (error) {

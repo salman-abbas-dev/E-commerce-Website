@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/products');
+      const res = await fetch('https://zenith-e-commerce-store.vercel.app/api/products');
       const data = await res.json();
       if (res.ok) setProducts(data);
     } catch (err) {
@@ -48,8 +48,8 @@ const AdminDashboard = () => {
 
     try {
       const url = editingId 
-        ? `http://localhost:5000/api/products/${editingId}` 
-        : `http://localhost:5000/api/products`;
+        ? `https://zenith-e-commerce-store.vercel.app/api/products/${editingId}` 
+        : `https://zenith-e-commerce-store.vercel.app/api/products`;
         
       const method = editingId ? 'PUT' : 'POST';
 
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to permanently delete this product?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const res = await fetch(`https://zenith-e-commerce-store.vercel.app/api/products/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${user.token}`,

@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     
-    // AuthContext handles the actual fetch to http://localhost:5000/api/users/login
+    // AuthContext handles the actual fetch to https://zenith-e-commerce-store.vercel.app/api/users/login
     const result = await login(email, password);
     
     if (result && result.success) {

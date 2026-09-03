@@ -18,7 +18,7 @@ export default function Home() {
         const fetchHomeData = async () => {
             try {
                 // Fetch directly from your MongoDB Backend
-                const res = await fetch('http://localhost:5000/api/products');
+                const res = await fetch('https://zenith-e-commerce-store.vercel.app/api/products');
                 const allProducts = await res.json();
                 
                 // Grab the first 4 for featured, and extract unique categories

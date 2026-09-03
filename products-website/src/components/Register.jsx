@@ -34,7 +34,7 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/users/register', {
+      const res = await fetch('https://zenith-e-commerce-store.vercel.app/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
