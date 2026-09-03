@@ -51,11 +51,19 @@ export default function Header() {
                         {/* Profile Icon / Auth Links */}
                         <div className="hidden lg:flex items-center gap-4 mr-2 border-r border-gray-800 pr-4">
                             {user ? (
-                                <Link to="/profile" className="p-2 text-gray-300 hover:text-indigo-400 transition-colors" title="My Profile">
-                                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                    </svg>
-                                </Link>
+                                <>
+                                    {/* Admin Button Conditionally Rendered */}
+                                    {user.isAdmin && (
+                                        <Link to="/admin" className="text-sm font-semibold text-white bg-emerald-600 px-3 py-1.5 rounded-lg hover:bg-emerald-500 transition-colors">
+                                            Admin Panel
+                                        </Link>
+                                    )}
+                                    <Link to="/profile" className="p-2 text-gray-300 hover:text-indigo-400 transition-colors" title="My Profile">
+                                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                    </Link>
+                                </>
                             ) : (
                                 <>
                                     <Link to="/login" className="text-sm font-semibold text-gray-300 hover:text-indigo-400 transition-colors">Login</Link>
@@ -107,10 +115,22 @@ export default function Header() {
                         
                         <div className="border-t border-gray-800 pt-4 flex flex-col space-y-2">
                             {user ? (
-                                <Link to="/profile" onClick={closeMenu} className="flex items-center gap-3 px-4 py-3 text-gray-400 font-semibold hover:bg-gray-900 hover:text-indigo-300 rounded-xl">
-                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                                    My Profile
-                                </Link>
+                                <>
+                                    {/* Mobile Admin Button Conditionally Rendered */}
+                                    {user.isAdmin && (
+                                        <Link to="/admin" onClick={closeMenu} className="flex items-center gap-3 px-4 py-3 text-emerald-400 font-semibold hover:bg-gray-900 hover:text-emerald-300 rounded-xl">
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                            Admin Panel
+                                        </Link>
+                                    )}
+                                    <Link to="/profile" onClick={closeMenu} className="flex items-center gap-3 px-4 py-3 text-gray-400 font-semibold hover:bg-gray-900 hover:text-indigo-300 rounded-xl">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                        My Profile
+                                    </Link>
+                                </>
                             ) : (
                                 <>
                                     <Link to="/login" onClick={closeMenu} className="block px-4 py-3 text-gray-400 font-semibold hover:bg-gray-900 hover:text-indigo-300 rounded-xl">Login</Link>

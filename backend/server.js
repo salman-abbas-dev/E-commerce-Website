@@ -11,10 +11,14 @@ const cartRoutes = require('./src/routes/cartRoutes');
 // Load environment variables from .env
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
-
 const app = express();
+
+// Database connection middleware for Serverless (Vercel)
+// This ensures the database connects dynamically when an API request is made
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 
 // Enable CORS for Vite default dev port (5173) and production build
 app.use(
@@ -50,8 +54,6 @@ app.use((err, req, res, next) => {
     stack: process.env.NODE_ENV === 'production' ? null : err.stack,
   });
 });
-
-const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;

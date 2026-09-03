@@ -7,10 +7,8 @@ export default function Footer() {
             <div className="mx-auto w-full max-w-screen-xl p-4 py-8 lg:py-12">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">
+                        {/* Z icon removed here, leaving only Zenith text */}
                         <Link to="/" className="flex items-center gap-2 text-2xl font-black tracking-tighter text-white">
-                            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                                <span className="text-white text-xl">Z</span>
-                            </div>
                             Zenith
                         </Link>
                         <p className="mt-4 text-sm text-gray-400 max-w-xs">
